@@ -1,0 +1,36 @@
+#container {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.title {
+  text-align: center;
+}
+
+div.stat-section {
+  flex: 0 0 100%;
+}
+
+.stat-section table.stat {
+  margin-bottom: 20px;
+  text-align: center;
+  border: none;
+  margin-left: 45%;
+}
+
+table {
+  flex: 0 0 40%;
+}
+
+table, th, td {
+  border: 1px solid gray;
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: center;
+}
+
+tr.NO.ANSWER {
+  background-color: #ff4949;
+}

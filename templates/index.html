@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/index.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="assets/index.js"></script>
+</head>
+<body>
+  <h3 class="title">CALL SUPPORT RECORDS</h3>
+  <div id="container">
+    <div class="stat-section">
+      <table class="stat">
+        <tr>
+          <td>Total Calls</td>
+          <td>{{ stats.total }}</td>
+        </tr>
+        <tr>
+          <td>Answered</td>
+          <td>{{ stats.answered }}</td>
+        </tr>
+        <tr>
+          <td>Unanswered</td>
+          <td>{{ stats.unanswered }}</td>
+        </tr>
+      </table>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="5">ALL CALLS</th> 
+        </tr>
+        <tr>
+          <th>#</th>
+          <th>Src(B)</th>
+          <th>Dest(C)</th>
+          <th>Time(K)</th>
+          <th>Disposition(N)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each allCalls}}
+          <tr class="{{disposition}}">
+            <td>{{@index}}</td>
+            <td>{{src}}</td>
+            <td>{{dst}}</td>
+            <td>{{end}}</td>
+            <td>{{disposition}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <table>
+        <thead>
+          <tr>
+            <th colspan="5">UNANSWERED CALLS</th> 
+          </tr>
+          <tr>
+            <th>#</th>
+            <th>Src(B)</th>
+            <th>Dest(C)</th>
+            <th>Time(K)</th>
+            <th>Disposition(N)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each unansweredCalls}}
+            <tr>
+              <td>{{@index}}</td>
+              <td>{{src}}</td>
+              <td>{{dst}}</td>
+              <td>{{end}}</td>
+              <td>{{disposition}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+  </div>
+</body>
+</html>
